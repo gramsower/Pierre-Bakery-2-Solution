@@ -15,7 +15,7 @@ namespace Bakery
 
       builder.Services.AddControllersWithViews();
 
-      builder.Services.AddDbContext<RecipeBoxContext>(
+      builder.Services.AddDbContext<BakeryContext>(
                         dbContextOptions => dbContextOptions
                           .UseMySql(
                             builder.Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"]
@@ -24,7 +24,7 @@ namespace Bakery
                       );
       
       builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<RecipeBoxContext>()
+                .AddEntityFrameworkStores<BakeryContext>()
                 .AddDefaultTokenProviders();
 
       // builder.Services.Configure<IdentityOptions>(options =>

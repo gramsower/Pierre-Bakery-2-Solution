@@ -5,9 +5,9 @@ namespace Bakery.Controllers
 {
   public class HomeController : Controller
   {
-    private readonly RecipeBoxContext _db;
+    private readonly BakeryContext _db;
 
-    public HomeController(RecipeBoxContext db)
+    public HomeController(BakeryContext db)
     {
       _db = db;
     }

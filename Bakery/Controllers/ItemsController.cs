@@ -65,15 +65,15 @@ namespace Bakery.Controllers
       }
     }
 
-    public ActionResult AddItem(int id)
+    public ActionResult AddFlavor(int id)
     {
       Item thisItem = _db.Items.FirstOrDefault(items => items.ItemId == id);
-      ViewBag.ItemId = new SelectList(_db.Items, "ItemId", "Item");
+      ViewBag.FlavorId = new SelectList(_db.Items, "FlavorId", "FlavorName");
       return View(thisItem);
     }
 
     [HttpPost]
-    public ActionResult AddItem(Item item, int itemId)
+    public ActionResult AddFlavor(Item item, int flavorId)
     {
       #nullable enable
       FlavorItem? joinEntity = _db.FlavorItems.FirstOrDefault(join => (join.FlavorId == flavorId && join.ItemId == item.ItemId));

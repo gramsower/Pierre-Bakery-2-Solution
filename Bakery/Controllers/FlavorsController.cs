@@ -65,7 +65,7 @@ namespace Bakery.Controllers
       }
     }
 
-    public ActionResult AddFlavor(int id)
+    public ActionResult AddItem(int id)
     {
       Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavors => flavors.FlavorId == id);
       ViewBag.ItemId = new SelectList(_db.Items, "ItemId", "ItemName");
@@ -76,14 +76,14 @@ namespace Bakery.Controllers
     public ActionResult AddItem(Flavor flavor, int itemId)
     {
       #nullable enable
-      FlavorItem? joinEntity = _db.FlavorItems.FirstOrDefault(join => (join.FlavorId == flavorId && join.ItemId == item.ItemId));
+      FlavorItem? joinEntity = _db.FlavorItems.FirstOrDefault(join => (join.ItemId == itemId && join.FlavorId == flavor.FlavorId));
       #nullable disable
-      if (joinEntity == null && flavorId != 0)
+      if (joinEntity == null && itemId != 0)
       {
-        _db.FlavorItems.Add(new FlavorItem() { FlavorId = flavorId, ItemId = item.ItemId });
+        _db.FlavorItems.Add(new FlavorItem() { ItemId = itemId, FlavorId = flavor.FlavorId });
         _db.SaveChanges();
       }
-      return RedirectToAction("Details", new { id = item.ItemId });
+      return RedirectToAction("Details", new { id = flavor.FlavorId });
     }
 
     public ActionResult Edit(int id)

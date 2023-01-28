@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1>Pierre's Bakery 2: Bakery Hullabaloo!</h1>
+<br>
+<h3>Please log in to view all of our current baked goods and flavor descriptions.</h3>
+
+<div class="everything">
+  <br>
+  <span>@Html.ActionLink("Check out Recipes", "Index", "Recipes")</span>
+  <br>
+  <span>@Html.ActionLink("Check out Tags", "Index", "Tags")</span>
+  <br>
+  <!-- <span>@Html.ActionLink("Create an account", "Index", "Account")</span> -->
+
+ @* <p>Please Log Out @User.Identity.Name!</p> 
+   @using (Html.BeginForm("LogOff", "Account"))
+  {
+    <input type="submit" class="btn btn-primary" value="Log out" /> 
+  } *@
+</div>

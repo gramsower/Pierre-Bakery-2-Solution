@@ -12,7 +12,7 @@ using System.Security.Claims;
 namespace Bakery.Controllers
 {
   [Authorize]
-  public class TagsController : Controller
+  public class ItemsController : Controller
   {
     private readonly BakeryContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
@@ -27,7 +27,7 @@ namespace Bakery.Controllers
     {
       string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
-      List<Items> userItems = _db.Items
+      List<Item> userItems = _db.Items
                               .Where(entry => entry.User.Id == currentUser.Id)
                               .ToList();
       return View(userItems);
@@ -67,7 +67,7 @@ namespace Bakery.Controllers
 
     public ActionResult AddItem(int id)
     {
-      Item thisItem = _db.Items.FirstOrDefault(item => items.ItemId == id);
+      Item thisItem = _db.Items.FirstOrDefault(items => items.ItemId == id);
       ViewBag.ItemId = new SelectList(_db.Items, "ItemId", "Item");
       return View(thisItem);
     }

@@ -8,10 +8,10 @@
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Flavor)
-  @Html.TextBoxFor(model => model.Flavor)
+  @Html.LabelFor(model => model.FlavorName)
+  @Html.TextBoxFor(model => model.FlavorName)
 
-  <input type="submit" value="Add new flavor tag" class="btn" />
+  <input type="submit" value="Add new Flavor" class="btn" />
 }
 
 <p>@Html.ActionLink("Back to Flavor List", "Index")</p>

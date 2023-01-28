@@ -1,0 +1,18 @@
+@{
+  Layout="_Layout";
+}
+
+@model Bakery.Models.Item
+
+<h4>Add a new Baked Good</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.ItemName)
+  @Html.TextBoxFor(model => model.ItemName)
+
+  <input type="submit" value="Add new Item" class="btn" />
+}
+
+<p>@Html.ActionLink("Back to Item List", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

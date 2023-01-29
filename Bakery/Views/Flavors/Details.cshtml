@@ -7,7 +7,7 @@
 
 <h2>Flavor Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.FlavorName): @Html.DisplayFor(model => model.FlavorName)</h3>
+<h3>Flavor: @Html.DisplayFor(model => model.FlavorName)</h3>
 
 @if(@Model.JoinEntities.Count == 0)
 {
@@ -15,11 +15,11 @@
 }
 else
 {
-  <h4>We make these baked goods with this flavor:</h4>
+  <h4>We make these items with this flavor:</h4>
   <ul>
   @foreach(FlavorItem join in Model.JoinEntities)
   {
-    <li>@join.Item.ItemName</li>
+    <li>Item: @join.Item.ItemName</li>
     @using (Html.BeginForm("DeleteJoin", "Flavors"))
     {
       @Html.Hidden("joinId", @join.FlavorItemId)
@@ -30,5 +30,5 @@ else
 }
 
 <p>@Html.ActionLink("Back to Flavor List", "Index")</p>
-<p>@Html.ActionLink("Add an Item to a Flavor tag", "AddFlavor", new { id = Model.FlavorId })</p>
+<p>@Html.ActionLink("Add an Item to this Flavor Tag", "AddItem", new { id = Model.FlavorId })</p>
 <p>@Html.ActionLink("Edit Flavor Tag", "Edit", new { id = Model.FlavorId })</p>

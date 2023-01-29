@@ -7,7 +7,7 @@
 
 <h2>Item Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.ItemName): @Html.DisplayFor(model => model.ItemName)</h3>
+<h3>Baked Good: @Html.DisplayFor(model => model.ItemName)</h3>
 
 @if(@Model.JoinEntities.Count == 0)
 {
@@ -19,8 +19,8 @@ else
   <ul>
   @foreach(FlavorItem join in Model.JoinEntities)
   {
-    <li>@join.Flavor.FlavorName</li>
-    @using (Html.BeginForm("DeleteJoin", "Item"))
+    <li>Flavor: @join.Flavor.FlavorName</li>
+    @using (Html.BeginForm("DeleteJoin", "Items"))
     {
       @Html.Hidden("joinId", @join.FlavorItemId)
       <input type="submit" value="Delete" />
@@ -29,6 +29,6 @@ else
   </ul>
 }
 
-<p>@Html.ActionLink("Back to Tag List", "Index")</p>
-<p>@Html.ActionLink("Add a Flavor Tag to an Item", "AddItem", new { id = Model.ItemId })</p>
-<p>@Html.ActionLink("Edit Item", "Edit", new { id = Model.ItemId })</p>
+<p>@Html.ActionLink("Back to Item List", "Index")</p>
+<p>@Html.ActionLink("Add a Flavor Tag to this Item", "AddFlavor", new { id = Model.ItemId })</p>
+<p>@Html.ActionLink("Edit Baked Good", "Edit", new { id = Model.ItemId })</p>

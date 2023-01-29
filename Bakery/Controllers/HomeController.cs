@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Bakery.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Bakery.Controllers
 {
@@ -15,7 +17,12 @@ namespace Bakery.Controllers
     [HttpGet("/")]
     public ActionResult Index()
     {        
-      return View();
+      Item[] items = _db.Items.ToArray();
+      Flavor[] flavors = _db.Flavors.ToArray();
+      Dictionary<string, object[]> model = new Dictionary<string, object[]>();
+      model.Add("items", items);
+      model.Add("flavors", flavors);
+      return View(model);
     }
 
     public ActionResult About()

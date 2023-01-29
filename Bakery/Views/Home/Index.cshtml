@@ -1,23 +1,39 @@
 @{
   Layout = "_Layout";
 }
+@using Bakery.Models;
 
 <h1>Pierre's Bakery 2: <br>
 Bakery Hullabaloo!</h1>
-<br>
-<h3>Please log in to view all of our current baked goods and flavor descriptions.</h3>
-
-<div class="everything">
-  <br>
-  <span>@Html.ActionLink("Check out Baked Goods", "Index", "Items")</span>
-  <br />
-  <span>@Html.ActionLink("Check out Flavors", "Index", "Flavors")</span>
-  <br>
-  <!-- <span>@Html.ActionLink("Create an account", "Index", "Account")</span> -->
-
- @* <p>Please Log Out @User.Identity.Name!</p> 
-   @using (Html.BeginForm("LogOff", "Account"))
+<div class="flex-container">
+  <hr />
+  <h4>Items</h4>
+  @if (Model["items"].Length == 0)
   {
-    <input type="submit" class="btn btn-primary" value="Log out" /> 
-  } *@
+    <p> No baked goods have been added yet!</p>
+    @Html.ActionLink("Add an Item", "Create", "Items")
+  }
+  <div class="my-ul">
+    <ul>
+      @foreach (Item item in Model["items"])
+      {
+        <li>@Html.ActionLink(@item.ItemName, "Details", "Items", new { id = @item.ItemId})</li>
+      }
+    </ul>
+  </div>
+  <br>
+  <h4>Flavors</h4>
+  @if (Model["flavors"].Length == 0)
+  {
+    <p>No flavors have been added yet!</p>
+    @Html.ActionLink("Add a Flavor", "Create", "Flavors")
+  }
+  <div class="my-ul">
+    <ul>
+      @foreach (Flavor flavor in Model["flavors"])
+      {
+        <li>@Html.ActionLink(@flavor.FlavorName, "Details", "Flavors", new { id = @flavor.FlavorId})</li>
+      }
+    </ul>
+  </div>
 </div>

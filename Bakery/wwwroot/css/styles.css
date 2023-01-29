@@ -7,82 +7,59 @@ body {
   background-color:#1F2021ff;
 
 }
+
 a:link {
-  color: rgb(151, 78, 9);
-  text-decoration-line: underline;
+  color: #1F2021ff;
 }
 
 a:visited {
-  color: #F0B574ff
+  color: #1F2021ff
 }
 
-.outside {
-  display: flex;
+a:hover {
+  color: #E68328ff;
+  text-decoration-line: underline;
 }
 
 .first_inner_div {
   display: flex;
-  margin: auto;
+  flex-direction: column;
   margin-top: 3rem;
-  width: 650px;
-  height: 550px;
+  margin-bottom: 3rem;
   border-radius: 5px;
   background: rgba(225,225,225,.5);
   box-shadow: 0 4.5px 12px rgb(231, 210, 210), 0 4.5px 12px rgb(24, 22, 22);
+  justify-content: center;
+  text-align: center;
+  list-style: inside;
+  text-align: center;
+  color: #E68328ff;
 }
 
-
-.second_inner_div {
-  padding: 1rem;
-} 
-
-.second_inner_div h1 {
+.first_inner_div h1 {
   text-align: center;
   color: #E68328ff;
   text-shadow: 1px 1px 3px black;
-
-}
-.second_inner_div h3 {
-  text-align: center;
-  color: #E68328ff;
-  text-shadow: 1px 1px 3px black;
-
-}
-.second_inner_div h4 {
-  text-align: center;
-  color: #E68328ff;
-  text-shadow: 1px 1px 3px black;
-
 }
 
-.second_inner_div h2 {
-  text-align: center;
+.first_inner_div h2 {
   color: #E68328ff;
   text-shadow: 1px 1px 3px black;
+}
 
+.first_inner_div h3 {
+  color: #E68328ff;
+  text-shadow: 1px 1px 3px black;
+}
+
+.first_inner_div h4 {
+  color: #E68328ff;
+  text-shadow: 1px 1px 3px black;
 }
 
 .outer_navigation_bar {
   display: flex;
   margin: auto;
-}
-
-header {
-  flex-grow: 0; 
-}
-
-.please_move {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-}
-
-.please_move form {
-  margin-top: -0.6rem;
-}
-
-.please_move p {
-  color: #F0B574ff;
 }
 
 .navigation_bar {
@@ -98,33 +75,18 @@ header {
   box-shadow: 0 4.5px 12px rgb(24, 22, 22), 0 4.5px 12px rgb(24, 22, 22);
 }
 
-.navigation_bar header {
-  font-size: 5rem;
-  color: #E68328ff;
-  text-align: center;
-  line-height: 4.5rem;
-  background: #E9C6A4ff;
-  user-select: none;
-  border-radius: 2px;
-}
-
-.navigation_bar .link {
-  font-size: large;
-  padding-top: 2rem;
-}
-
-
 .link {
   font-size: 1rem;
   font-weight: 500;
   padding-top: 40px;
-  color: #F0B574ff;
+  color: #1F2021ff;
 }  
 
-.link :hover {
-  color: #E9C6A4ff;
+.flex-container {
+  text-align: center;
 }
 
-.everything {
-  display: flex;
+.my-ul {
+  display: inline-block;
+  text-align: left;
 }

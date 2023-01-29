@@ -16,25 +16,22 @@
   </head>
   <body>
     <div class="container">
-      <div class="outside">
-        <div class="first_inner_div">
-          <div class="second_inner_div">
-          @RenderBody()
-          </div>
-        </div>
+      <div class="first_inner_div">
+        @RenderBody()
       </div>
     </div>
-
     <div class="container">
       <div class="outer_navigation_bar">
         <div class="navigation_bar">
-          <header>
-            <img src="../img/croissantsmall.jpg"
+            <img src="/img/croissantsmall.jpg"
             alt="croissant dusted with flour on a black background">
-          </header>
           @if (User.Identity.IsAuthenticated) {
-            <span class="link">@Html.ActionLink("Home", "Index", "Home")</span>
-            // <span class="link">@Html.ActionLink("Contact", "About", "Home")</span>
+            <span class = "link">@Html.ActionLink("Home", "Index", "Home") 
+              | |
+            @Html.ActionLink("All Items", "Index", "Items") 
+              | |
+            @Html.ActionLink("All Flavors", "Index", "Flavors")
+            <br></span>
             <span class="please_move">
               <p>@User.Identity.Name</p> 
               @using (Html.BeginForm("LogOff", "Account"))
@@ -48,7 +45,6 @@
             <span class="link">@Html.ActionLink("Home", "Index", "Home")</span>
             <span class="link">@Html.ActionLink("Login", "Login", "Account")</span>
             <span class="link">@Html.ActionLink("Register", "Register", "Account")</span>
-            // <span class="link">@Html.ActionLink("Contact", "About", "Home")</span>
           } 
         </div>
       </div>

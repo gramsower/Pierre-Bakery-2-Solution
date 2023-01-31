@@ -18,11 +18,12 @@
 * Identity
 
 ### Description
-* This web-based application allows a user to create a unique profile, add baked goods, categorize them as either sweet or savory, and use tags to describe the flavors of the item.
+* This web-based application allows a user to create a unique profile, add baked goods, add flavor categories, and link the items and use flavor tags in a many-to-many relationship.
 * This app utilizes simple authentication for basic security and user-entered data integrity.
-* All users, regardless of authentication, can view a list of goods available for sale (and each item's designation as sweet or savory, and the tags assigned to that good).
-* Only logged-in users can edit the list of items, and the flavor tags.
-* Within the app, the user can:
+* This app requires the user to use database migration to construct the necessary SQL database on their local machine.
+* All users, regardless of authentication, can view a list of goods available for sale (and the flavor tags linked to that item).
+* Only logged-in users can add or edit the list of items and flavor tags.
+* Specifically, a logged-in user can:
 - Add and delete baked goods (items)
 - Add and delete flavor tags
 - Assign items to specific flavor tags, or assign flavor tags to specific items

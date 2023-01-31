@@ -2,7 +2,7 @@
 
 #### By **Greg Ramsower**
 
-##### *This time, it's flavorful*
+### *This time, it's flavorful*
 
 ## Technologies Used
 * VSCode

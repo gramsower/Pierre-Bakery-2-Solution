@@ -15,14 +15,13 @@
 * CSS
 * HTML
 * MySQL Server
-* MySQL Workbench
+* Identity
 
 ### Description
 * This web-based application allows a user to create a unique profile, add baked goods, categorize them as either sweet or savory, and use tags to describe the flavors of the item.
 * This app utilizes simple authentication for basic security and user-entered data integrity.
 * All users, regardless of authentication, can view a list of goods available for sale (and each item's designation as sweet or savory, and the tags assigned to that good).
 * Only logged-in users can edit the list of items, and the flavor tags.
-
 * Within the app, the user can:
 - Add and delete baked goods (items)
 - Add and delete flavor tags
@@ -45,9 +44,14 @@
 #### Initial Setup 
 5. Clone this repository.
 6. Open the terminal and navigate to this project's production directory, named "Bakery".
-7. Within the production directory "Bakery", create a new file called appsettings.json.
-8. Open your code editor and navigate to appsetings.json.
-9. Within appsettings.json, add the following code, replacing the `uid` and `pwd` values with your own username and password for MySQL.
+7. If you have not previously added the following packages globally, Add the following packages within the production directory ("Bakery"):
+```bash
+$ dotnet add package Microsoft.EntityFrameworkCore -v 6.0.0 
+$ dotnet add package Pomelo.EntityFarmeworkCore.MySql -v 6.0.0
+```
+8. Within the production directory, create a new file called appsettings.json.
+9. Open your code editor and navigate to appsetings.json.
+10. Within appsettings.json, add the following code, replacing the `uid` and `pwd` values with your own username and password for MySQL.
 
 ```json
 {
@@ -56,24 +60,25 @@
   }
 }
 ```
-#### Importing the Database 
-10. Open MySQL Workbench and locate the Navigator pane (on the left-hand side of the program window.)
-11. Select "Data Import/Restore", which will open the Data Import page.
-12. Select the option labeled "Import from Self Contained File". Navigate to the top directory of the files you downloaded from this repository ("PierreBakery2-Solution").
-13. Within "", select the file named pierre_bakery_2.sql.
-14. Under "Default Schema to be Imported To", click the "New..." button, enter the name of the database (pierre_bakery_2.sql), and click "OK".
-15. Navigate to the "Start Import" button located in the lower right corner of the Data Import Pane. (Note: If you cannot find the button, you may need to expand MySQL's window size to reveal it.)
-16. On the Navigator panel, select the "Schemas" tab. Click the "refresh" icon (two arrows arranged in a circle in the top right corner of the pane), and the database should appear.
+
+11. Use database migration to construct a shiny new database locally:
+* In a terminal window, navigate to the project's root directory, named "PierreBakery2-SOlution-Main".
+* Run the following commands:
+```bash
+$ dotnet ef migrations add Initial
+$ dotnet ef database update
+```
+* These two commands will instantiate a local database conforming to the program requirements.
 
 #### Running the Program
-17. Open a terminal and navigate to this project's production directory ("Bakery") if you have not already done so.
-18. Type `dotnet watch run` in the command line to start the project in development mode with a watcher.
-* If the build fails, revisit steps 1 - 3 above to ensure that .NET6 has been properly installed.
-19. Open the browser to _https:localhost:5001_. 
+12. Open a terminal and navigate to this project's production directory ("Bakery") if you have not already done so.
+13. Type `dotnet watch run` in the command line to start the project in development mode with a watcher.
+* If the build fails, revisit steps 1 - 3 and 7 above to ensure that .NET6 and the required packages have been properly installed.
+14. Open the browser to _https:localhost:5001_. 
   * If you cannot access localhost:5001, it is likely because you have not configured a .NET developer security certificate for HTTPS. (Please see [this page](https://www.learnhowtoprogram.com/c-and-net-part-time/c-web-applications/redirecting-to-https-and-issuing-a-security-certificate) for instructions on how to fix this issue. 
 
 ## Known Bugs
-* 
+* None
 
 ## License
 * **SEE LICENSE [HERE](./LICENSE.txt)** 
